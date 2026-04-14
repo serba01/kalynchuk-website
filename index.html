@@ -54,11 +54,11 @@
         <div class="max-w-3xl mx-auto px-6 text-center">
             <div class="glass p-10 rounded-xl relative text-left">
                 <div class="flex items-center justify-between mb-8 border-b border-white/5 pb-6">
-                    <h2 class="text-2xl font-black uppercase tracking-tighter italic text-white font-black">Data Ingestion Protocol</h2>
+                    <h2 class="text-2xl font-black uppercase tracking-tighter italic text-white">Data Ingestion Protocol</h2>
                     <span class="text-[10px] mono text-slate-500 flex items-center"><span class="w-2 h-2 rounded-full bg-green-500 mr-2 animate-pulse"></span> SYSTEM READY</span>
                 </div>
                 
-                <form id="audit-form" class="space-y-6">
+                <form id="audit-form" class="space-y-6" enctype="multipart/form-data">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                             <label class="block text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-2 mono">Email</label>
@@ -75,7 +75,7 @@
                         <div class="pointer-events-none">
                             <svg class="mx-auto h-10 w-10 text-slate-500 group-hover:text-white transition mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" /></svg>
                             <p class="text-white font-bold text-sm mb-1 uppercase tracking-widest">Drag &amp; Drop 2 CSV Reports</p>
-                            <p class="text-slate-500 text-[10px] mono">Products &amp; Search Terms from Amazon POE</p>
+                            <p class="text-slate-500 text-[10px] mono uppercase tracking-tighter">Products &amp; Search Terms from Amazon POE</p>
                         </div>
                     </div>
                     <div id="file-list" class="text-[10px] mono text-green-500 hidden space-y-1 mt-4"></div>
@@ -87,65 +87,13 @@
                         </p>
                     </div>
 
-                    <button type="submit" id="submit-btn" class="w-full bg-white text-black font-black uppercase py-4 rounded hover:bg-slate-200 transition mt-4 text-xs tracking-widest">
+                    <button type="submit" id="submit-btn" class="w-full bg-white text-black font-black uppercase py-4 rounded hover:bg-slate-200 transition mt-4 text-[10px] tracking-[0.2em]">
                         Generate Teaser Report
                     </button>
                 </form>
             </div>
         </div>
     </section>
-
-    <section id="pricing" class="max-w-6xl mx-auto px-6 py-32 border-t border-white/5">
-        <div class="text-center mb-20">
-            <h2 class="text-4xl font-black mb-4 uppercase italic tracking-tighter text-white font-black">Transparent Unit Economics.</h2>
-            <p class="text-slate-400">No retainers. No percentage of ad spend. Just results.</p>
-        </div>
-
-        <div class="grid md:grid-cols-3 gap-8 items-end">
-            <div class="glass p-8 rounded-lg border-white/5">
-                <h3 class="text-[10px] font-black uppercase tracking-[0.3em] mb-4 text-slate-500">Risk Teaser</h3>
-                <div class="text-4xl font-black mb-2 text-white font-black">$0</div>
-                <p class="text-[10px] text-slate-500 mb-8 mono uppercase tracking-widest">Initial Assessment</p>
-                <ul class="text-[11px] space-y-4 text-slate-400 mb-8 mono uppercase tracking-widest">
-                    <li class="flex items-center"><span class="text-green-500 mr-2">&check;</span> EBITDA Leakage Sum ($)</li>
-                    <li class="flex items-center"><span class="text-green-500 mr-2">&check;</span> Competitive Lethargy Index</li>
-                    <li class="flex items-center"><span class="text-green-500 mr-2">&check;</span> True Entry Barrier (ML)</li>
-                    <li class="flex items-center text-slate-600"><span class="text-red-500 mr-2">&times;</span> Keywords Redacted</li>
-                </ul>
-                <a href="#terminal" class="block w-full border border-white/20 py-3 text-center font-bold uppercase text-[10px]">Get Teaser</a>
-            </div>
-
-            <div class="border-2 border-[#D90429] p-10 rounded-lg bg-zinc-950 relative shadow-2xl shadow-red-900/10 scale-105">
-                <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-[#D90429] text-white px-3 py-1 text-[8px] font-black uppercase tracking-widest">Most Selected</div>
-                <h3 class="text-[10px] font-black uppercase tracking-[0.3em] mb-4 text-[#D90429]">The Oracle Quant</h3>
-                <div class="text-5xl font-black mb-2 text-white font-black">$499</div>
-                <p class="text-[10px] text-slate-500 mb-8 mono uppercase tracking-widest">Full Niche Audit</p>
-                <ul class="text-[11px] space-y-4 text-white mb-8 mono uppercase tracking-widest">
-                    <li class="flex items-center"><span class="text-green-500 mr-2">&check;</span> Unredacted PDF Report</li>
-                    <li class="flex items-center"><span class="text-green-500 mr-2">&check;</span> ASIN Vulnerability Matrix</li>
-                    <li class="flex items-center"><span class="text-green-500 mr-2">&check;</span> Negative Keyword Bulk CSV</li>
-                    <li class="flex items-center"><span class="text-green-500 mr-2">&check;</span> Monopoly Blueprint</li>
-                </ul>
-                <a href="#" class="block w-full bg-[#D90429] py-4 text-center font-bold uppercase text-[10px] hover:bg-red-700 transition shadow-xl text-white">Unlock Data Room</a>
-            </div>
-
-            <div class="glass p-8 rounded-lg border-white/5">
-                <h3 class="text-[10px] font-black uppercase tracking-[0.3em] mb-4 text-slate-500">M&A Advisory</h3>
-                <div class="text-4xl font-black mb-2 text-white font-black">$1,499</div>
-                <p class="text-[10px] text-slate-500 mb-8 mono uppercase tracking-widest">Strategic Partnership</p>
-                <ul class="text-[11px] space-y-4 text-slate-400 mb-8 mono uppercase tracking-widest">
-                    <li class="flex items-center"><span class="text-green-500 mr-2">&check;</span> Everything in Quant</li>
-                    <li class="flex items-center"><span class="text-green-500 mr-2">&check;</span> 60-Min Deep Dive Session</li>
-                    <li class="flex items-center"><span class="text-green-500 mr-2">&check;</span> Due Diligence Protocol</li>
-                </ul>
-                <a href="mailto:ceo@kalynchuk.com" class="block w-full border border-white/20 py-3 text-center font-bold uppercase text-[10px]">Enquire</a>
-            </div>
-        </div>
-    </section>
-
-    <footer class="py-12 text-center border-t border-white/5">
-        <p class="text-[10px] text-slate-600 font-bold uppercase tracking-widest mono">&copy; 2026 Kalynchuk. Built for Institutional E-commerce.</p>
-    </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -158,15 +106,18 @@
             const auditForm = document.getElementById('audit-form');
             const submitBtn = document.getElementById('submit-btn');
 
-            let filesData = new DataTransfer();
+            // Специальный объект для хранения файлов
+            let dataTransfer = new DataTransfer();
 
             function refreshUI() {
                 fileList.innerHTML = '';
-                if (filesData.files.length > 0) {
-                    Array.from(filesData.files).forEach(f => {
-                        fileList.innerHTML += `<div class="text-green-500 mono text-[10px] uppercase tracking-widest italic">[READY] &bull; ${f.name}</div>`;
+                if (dataTransfer.files.length > 0) {
+                    Array.from(dataTransfer.files).forEach(f => {
+                        fileList.innerHTML += `<div class="text-green-500 mono text-[10px] uppercase tracking-widest italic font-bold">[READY FOR UPLOAD] &bull; ${f.name}</div>`;
                     });
                     fileList.classList.remove('hidden');
+                } else {
+                    fileList.classList.add('hidden');
                 }
             }
 
@@ -183,37 +134,61 @@
             });
 
             dropzone.addEventListener('drop', (e) => {
-                filesData = new DataTransfer();
-                Array.from(e.dataTransfer.files).forEach(f => filesData.items.add(f));
-                fileInput.files = filesData.files;
+                const files = e.dataTransfer.files;
+                dataTransfer = new DataTransfer(); // Очищаем
+                Array.from(files).forEach(f => dataTransfer.items.add(f));
+                fileInput.files = dataTransfer.files;
                 refreshUI();
             });
 
             fileInput.addEventListener('change', (e) => {
-                filesData = new DataTransfer();
-                Array.from(e.target.files).forEach(f => filesData.items.add(f));
+                dataTransfer = new DataTransfer();
+                Array.from(e.target.files).forEach(f => dataTransfer.items.add(f));
                 refreshUI();
             });
 
             auditForm.addEventListener("submit", async (e) => {
                 e.preventDefault();
-                if (filesData.files.length < 2) {
-                    alert("PROTOCOL ERROR: Both Amazon reports (Products and Search Terms) are required.");
+                
+                // Проверка на количество
+                if (dataTransfer.files.length < 2) {
+                    alert("PROTOCOL ERROR: Algorithm requires BOTH datasets (Products and Search Terms). Please drag them together.");
                     return;
                 }
-                submitBtn.innerHTML = "UPLOADING DATA...";
+
+                submitBtn.innerHTML = "UPLOADING TO SECURE SERVER...";
                 submitBtn.disabled = true;
-                const { error } = await forminit.submit(FORM_ID, new FormData(auditForm));
-                if (error) {
-                    alert("Error: " + error.message);
-                    submitBtn.disabled = false;
-                    submitBtn.innerHTML = "GENERATE TEASER REPORT";
-                } else {
-                    submitBtn.innerHTML = "SUCCESS. CHECK EMAIL.";
+                submitBtn.style.opacity = "0.5";
+
+                // ВАЖНО: Явно собираем FormData и принудительно добавляем файлы
+                const formData = new FormData(auditForm);
+                
+                // Удаляем старые привязки, если они есть, и добавляем файлы из нашего объекта
+                formData.delete('fi-file-attachment');
+                Array.from(dataTransfer.files).forEach(file => {
+                    formData.append('fi-file-attachment', file);
+                });
+
+                try {
+                    const { data, error } = await forminit.submit(FORM_ID, formData);
+                    
+                    if (error) throw new Error(error.message);
+
+                    submitBtn.innerHTML = "DATA SECURED. CHECK EMAIL WITHIN 24H.";
                     submitBtn.classList.replace("bg-white", "bg-green-600");
                     submitBtn.classList.replace("text-black", "text-white");
+                    submitBtn.style.opacity = "1";
+                    
                     auditForm.reset();
+                    dataTransfer = new DataTransfer();
+                    fileInput.files = dataTransfer.files;
                     fileList.classList.add('hidden');
+
+                } catch (err) {
+                    alert("System Error: " + err.message);
+                    submitBtn.innerHTML = "GENERATE TEASER REPORT";
+                    submitBtn.disabled = false;
+                    submitBtn.style.opacity = "1";
                 }
             });
         });
