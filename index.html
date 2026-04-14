@@ -8,97 +8,65 @@
     <script src="https://forminit.com/sdk/v1/forminit.js"></script>
     
     <script src="https://cdn.tailwindcss.com"></script>
-    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #050505; color: #E2E8F0; margin: 0; padding: 0; }
+        body { font-family: 'Inter', sans-serif; background-color: #050505; color: #E2E8F0; }
         .mono { font-family: 'Roboto Mono', monospace; }
         .glass { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.08); }
         .drag-over { border-color: #D90429 !important; background-color: rgba(217, 4, 41, 0.1) !important; }
     </style>
 </head>
-<body class="antialiased text-slate-200">
+<body class="antialiased">
 
     <nav class="max-w-6xl mx-auto px-6 py-6 flex justify-between items-center border-b border-white/5">
         <div class="text-2xl font-black tracking-tighter uppercase italic text-white">Kalynchuk<span class="text-[#D90429]">.</span></div>
         <div class="hidden md:flex space-x-8 text-[10px] font-bold uppercase tracking-widest mono text-slate-500">
             <a href="#terminal" class="hover:text-white transition">Data Ingestion</a>
-            <a href="#pricing" class="hover:text-white transition">Pricing</a>
             <a href="research.html" class="hover:text-white transition">Intel Library</a>
         </div>
         <a href="#terminal" class="bg-white text-black px-5 py-2 text-[10px] font-black uppercase tracking-widest hover:bg-[#D90429] hover:text-white transition">Run Audit</a>
     </nav>
 
     <header class="max-w-6xl mx-auto px-6 pt-24 pb-20 text-center">
-        <div class="inline-block border border-[#D90429]/50 bg-[#D90429]/10 px-4 py-1.5 rounded-sm text-[10px] font-bold uppercase tracking-[0.2em] text-[#D90429] mb-8 mono">
-            Zero Data Retention Policy
-        </div>
-        <h1 class="text-6xl md:text-8xl font-black tracking-tighter leading-none mb-8 uppercase text-white">
-            Stop <span class="text-[#D90429]">EBITDA Leakage</span> <br> on Amazon.
-        </h1>
-        <p class="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed mb-8 font-medium italic">
-            Algorithmic Due Diligence for M&A aggregators and $1M+ brands. 
-            Powered by Market Kinematics and your raw Amazon data.
-        </p>
-        <div class="max-w-2xl mx-auto bg-white/5 border border-white/10 p-6 rounded-lg mb-12 text-sm text-slate-400">
-            <h3 class="text-white font-bold mb-2 uppercase tracking-widest mono text-xs">The $5,000 ROI Guarantee</h3>
-            <p>If the algorithm cannot locate at least $5,000 of annualized budget waste in your niche, the full audit is on me. You pay nothing.</p>
-        </div>
-        <a href="#terminal" class="inline-block bg-[#D90429] text-white px-12 py-6 font-black uppercase tracking-widest hover:scale-105 transition shadow-2xl shadow-red-900/20 text-sm">
-            Access The Terminal
-        </a>
+        <div class="inline-block border border-[#D90429]/50 bg-[#D90429]/10 px-4 py-1.5 rounded-sm text-[10px] font-bold uppercase tracking-[0.2em] text-[#D90429] mb-8 mono">Zero Data Retention</div>
+        <h1 class="text-6xl md:text-8xl font-black tracking-tighter leading-none mb-8 uppercase text-white">Stop <span class="text-[#D90429]">EBITDA Leakage</span></h1>
+        <p class="text-xl text-slate-400 max-w-3xl mx-auto mb-12 font-medium italic italic">Algorithmic Due Diligence for Amazon M&A.</p>
+        <a href="#terminal" class="inline-block bg-[#D90429] text-white px-12 py-6 font-black uppercase tracking-widest hover:scale-105 transition shadow-2xl shadow-red-900/20 text-sm">Access Terminal</a>
     </header>
 
     <section id="terminal" class="bg-zinc-950 py-24 border-y border-white/5">
-        <div class="max-w-3xl mx-auto px-6 text-center">
-            <div class="glass p-10 rounded-xl relative text-left">
-                <div class="flex items-center justify-between mb-8 border-b border-white/5 pb-6">
-                    <h2 class="text-2xl font-black uppercase tracking-tighter italic text-white">Data Ingestion Protocol</h2>
-                    <span class="text-[10px] mono text-slate-500 flex items-center"><span class="w-2 h-2 rounded-full bg-green-500 mr-2 animate-pulse"></span> SYSTEM READY</span>
-                </div>
+        <div class="max-w-3xl mx-auto px-6">
+            <div class="glass p-10 rounded-xl relative">
+                <h2 class="text-2xl font-black uppercase tracking-tighter italic text-white mb-8">Data Ingestion Protocol</h2>
                 
-                <form id="audit-form" class="space-y-6" enctype="multipart/form-data">
+                <form id="audit-form" class="space-y-6">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-2 mono">Email</label>
-                            <input type="email" name="fi-sender-email" required class="w-full bg-black border border-slate-800 text-white px-4 py-3 rounded focus:outline-none focus:border-[#D90429] transition mono text-sm" placeholder="ceo@brand.com">
-                        </div>
-                        <div>
-                            <label class="block text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-2 mono">Niche Name</label>
-                            <input type="text" name="niche-name" required class="w-full bg-black border border-slate-800 text-white px-4 py-3 rounded focus:outline-none focus:border-[#D90429] transition mono text-sm" placeholder="e.g., Cat Litter Box">
-                        </div>
+                        <input type="email" name="fi-sender-email" id="email-field" placeholder="Email" required class="w-full bg-black border border-slate-800 text-white px-4 py-3 rounded focus:border-[#D90429] transition mono text-sm">
+                        <input type="text" name="niche-name" id="niche-field" placeholder="Niche Name" required class="w-full bg-black border border-slate-800 text-white px-4 py-3 rounded focus:border-[#D90429] transition mono text-sm">
                     </div>
 
-                    <div id="dropzone" class="border-2 border-dashed border-slate-700 rounded-lg p-12 text-center transition-all cursor-pointer relative group">
+                    <div id="dropzone" class="border-2 border-dashed border-slate-700 rounded-lg p-12 text-center relative group cursor-pointer">
                         <input type="file" id="file-upload" name="fi-file-attachment" multiple accept=".csv" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10">
-                        <div class="pointer-events-none">
-                            <svg class="mx-auto h-10 w-10 text-slate-500 group-hover:text-white transition mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" /></svg>
-                            <p class="text-white font-bold text-sm mb-1 uppercase tracking-widest">Drag &amp; Drop 2 CSV Reports</p>
-                            <p class="text-slate-500 text-[10px] mono uppercase tracking-tighter">Products &amp; Search Terms from Amazon POE</p>
-                        </div>
+                        <p class="text-white font-bold text-sm uppercase tracking-widest">Drag &amp; Drop 2 CSVs</p>
+                        <p class="text-slate-500 text-[10px] mono">Products &amp; Search Terms Reports</p>
                     </div>
-                    <div id="file-list" class="text-[10px] mono text-green-500 hidden space-y-1 mt-4"></div>
+                    <div id="file-list" class="text-[10px] mono text-green-500 hidden mt-4"></div>
 
-                    <div class="flex items-start mt-6">
-                        <input type="checkbox" required class="mt-1 mr-3 accent-[#D90429]">
-                        <p class="text-[10px] text-slate-500 leading-relaxed uppercase tracking-wider">
-                            I accept the NDA Protocol. I acknowledge that data is processed locally and purged within 24 hours.
-                        </p>
-                    </div>
-
-                    <button type="submit" id="submit-btn" class="w-full bg-white text-black font-black uppercase py-4 rounded hover:bg-slate-200 transition mt-4 text-[10px] tracking-[0.2em]">
-                        Generate Teaser Report
-                    </button>
+                    <button type="submit" id="submit-btn" class="w-full bg-white text-black font-black uppercase py-4 rounded hover:bg-slate-200 transition text-xs tracking-widest">Generate Teaser Report</button>
                 </form>
             </div>
         </div>
     </section>
 
+    <footer class="py-12 text-center border-t border-white/5">
+        <p class="text-[10px] text-slate-600 font-bold uppercase tracking-widest mono">&copy; 2026 Kalynchuk. Built for Institutional E-commerce.</p>
+    </footer>
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const forminit = new Forminit();
-            const FORM_ID = "fzjy82sp7u6";
+            const FORM_ID = "fzjy82sp7u6"; // Твой ID из Forminit
 
             const dropzone = document.getElementById('dropzone');
             const fileInput = document.getElementById('file-upload');
@@ -106,14 +74,13 @@
             const auditForm = document.getElementById('audit-form');
             const submitBtn = document.getElementById('submit-btn');
 
-            // Специальный объект для хранения файлов
             let dataTransfer = new DataTransfer();
 
             function refreshUI() {
                 fileList.innerHTML = '';
                 if (dataTransfer.files.length > 0) {
                     Array.from(dataTransfer.files).forEach(f => {
-                        fileList.innerHTML += `<div class="text-green-500 mono text-[10px] uppercase tracking-widest italic font-bold">[READY FOR UPLOAD] &bull; ${f.name}</div>`;
+                        fileList.innerHTML += `<div class="text-green-500 font-mono text-[10px] uppercase italic">[READY] &bull; ${f.name}</div>`;
                     });
                     fileList.classList.remove('hidden');
                 } else {
@@ -121,27 +88,18 @@
                 }
             }
 
-            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(name => {
-                dropzone.addEventListener(name, (e) => { e.preventDefault(); e.stopPropagation(); });
+            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(n => {
+                dropzone.addEventListener(n, e => { e.preventDefault(); e.stopPropagation(); });
             });
 
-            ['dragenter', 'dragover'].forEach(name => {
-                dropzone.addEventListener(name, () => dropzone.classList.add('drag-over'));
-            });
-
-            ['dragleave', 'drop'].forEach(name => {
-                dropzone.addEventListener(name, () => dropzone.classList.remove('drag-over'));
-            });
-
-            dropzone.addEventListener('drop', (e) => {
-                const files = e.dataTransfer.files;
-                dataTransfer = new DataTransfer(); // Очищаем
-                Array.from(files).forEach(f => dataTransfer.items.add(f));
+            dropzone.addEventListener('drop', e => {
+                dataTransfer = new DataTransfer();
+                Array.from(e.dataTransfer.files).forEach(f => dataTransfer.items.add(f));
                 fileInput.files = dataTransfer.files;
                 refreshUI();
             });
 
-            fileInput.addEventListener('change', (e) => {
+            fileInput.addEventListener('change', e => {
                 dataTransfer = new DataTransfer();
                 Array.from(e.target.files).forEach(f => dataTransfer.items.add(f));
                 refreshUI();
@@ -150,20 +108,17 @@
             auditForm.addEventListener("submit", async (e) => {
                 e.preventDefault();
                 
-                // Проверка на количество
                 if (dataTransfer.files.length < 2) {
-                    alert("PROTOCOL ERROR: Algorithm requires BOTH datasets (Products and Search Terms). Please drag them together.");
+                    alert("PROTOCOL ERROR: Algorithm requires 2 CSV files.");
                     return;
                 }
 
-                submitBtn.innerHTML = "UPLOADING TO SECURE SERVER...";
+                submitBtn.innerHTML = "SECURE UPLOADING...";
                 submitBtn.disabled = true;
-                submitBtn.style.opacity = "0.5";
 
-                // ВАЖНО: Явно собираем FormData и принудительно добавляем файлы
                 const formData = new FormData(auditForm);
                 
-                // Удаляем старые привязки, если они есть, и добавляем файлы из нашего объекта
+                // Принудительно проверяем, что файлы в FormData
                 formData.delete('fi-file-attachment');
                 Array.from(dataTransfer.files).forEach(file => {
                     formData.append('fi-file-attachment', file);
@@ -172,23 +127,26 @@
                 try {
                     const { data, error } = await forminit.submit(FORM_ID, formData);
                     
-                    if (error) throw new Error(error.message);
+                    if (error) {
+                        // Если ошибка - не выводим весь HTML, а пишем кратко
+                        console.error(error);
+                        alert("Forminit Error: Please check your Form ID or Plan limits.");
+                        submitBtn.innerHTML = "GENERATE TEASER REPORT";
+                        submitBtn.disabled = false;
+                        return;
+                    }
 
-                    submitBtn.innerHTML = "DATA SECURED. CHECK EMAIL WITHIN 24H.";
+                    submitBtn.innerHTML = "SUCCESS. CHECK EMAIL.";
                     submitBtn.classList.replace("bg-white", "bg-green-600");
                     submitBtn.classList.replace("text-black", "text-white");
-                    submitBtn.style.opacity = "1";
-                    
                     auditForm.reset();
                     dataTransfer = new DataTransfer();
-                    fileInput.files = dataTransfer.files;
                     fileList.classList.add('hidden');
 
                 } catch (err) {
-                    alert("System Error: " + err.message);
-                    submitBtn.innerHTML = "GENERATE TEASER REPORT";
+                    alert("System Connection Error.");
                     submitBtn.disabled = false;
-                    submitBtn.style.opacity = "1";
+                    submitBtn.innerHTML = "GENERATE TEASER REPORT";
                 }
             });
         });
