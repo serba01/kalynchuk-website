@@ -23,26 +23,25 @@
         <div class="text-2xl font-black tracking-tighter uppercase">Kalynchuk<span class="text-[#D90429]">.</span></div>
         <div class="hidden md:flex space-x-8 text-xs font-bold uppercase tracking-widest mono text-slate-500">
             <a href="#terminal" class="hover:text-white transition">Data Ingestion</a>
-            <a href="#method" class="hover:text-white transition">Methodology</a>
-            <a href="#pricing" class="hover:text-white transition">Pricing</a>
             <a href="research.html" class="hover:text-white transition">Intel Library</a>
         </div>
+        <a href="#terminal" class="bg-white text-black px-5 py-2 text-[10px] font-black uppercase tracking-widest hover:bg-[#D90429] hover:text-white transition text-center">Run Audit</a>
     </nav>
 
     <header class="max-w-6xl mx-auto px-6 pt-24 pb-20 text-center">
         <div class="inline-block border border-[#D90429]/50 bg-[#D90429]/10 px-4 py-1.5 rounded-sm text-[10px] font-bold uppercase tracking-[0.2em] text-[#D90429] mb-8 mono">
             Zero Data Retention Policy
         </div>
-        <h1 id="dynamic-h1" class="text-6xl md:text-8xl font-black tracking-tighter leading-none mb-8">
-            STOP <span class="text-[#D90429]">EBITDA LEAKAGE</span> <br> ON AMAZON.
+        <h1 id="dynamic-h1" class="text-6xl md:text-8xl font-black tracking-tighter leading-none mb-8 uppercase">
+            Stop <span class="text-[#D90429]">EBITDA Leakage</span> <br> on Amazon.
         </h1>
         <p class="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed mb-8 font-medium">
             Algorithmic Due Diligence for M&A aggregators and $1M+ brands. 
             Powered by Market Kinematics and your raw Amazon data.
         </p>
         <div class="max-w-2xl mx-auto bg-white/5 border border-white/10 p-6 rounded-lg mb-12 text-sm text-slate-400">
-            <h3 class="text-white font-bold mb-2 uppercase tracking-widest mono text-xs">The $5,000 ROI Guarantee</h3>
-            <p>If the algorithm cannot locate at least $5,000 of annualized budget waste (Traffic Bleeders) in your niche, the full audit is on me. You pay nothing.</p>
+            <h3 class="text-white font-bold mb-2 uppercase tracking-widest mono text-xs tracking-tighter">The $5,000 ROI Guarantee</h3>
+            <p>If the algorithm cannot locate at least $5,000 of annualized budget waste in your niche, the full audit is on me. You pay nothing.</p>
         </div>
         <a href="#terminal" class="inline-block bg-[#D90429] text-white px-12 py-6 font-black uppercase tracking-widest hover:scale-105 transition shadow-2xl shadow-red-900/20 text-sm">
             Access The Terminal
@@ -61,16 +60,16 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                             <label class="block text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-2 mono">Corporate Email</label>
-                            <input type="email" name="fi-sender-email" required class="w-full bg-black border border-slate-800 text-white px-4 py-3 rounded focus:outline-none focus:border-[#D90429] transition mono text-sm" placeholder="ceo@brand.com">
+                            <input type="email" name="fi-sender-email" id="email-field" required class="w-full bg-black border border-slate-800 text-white px-4 py-3 rounded focus:outline-none focus:border-[#D90429] transition mono text-sm" placeholder="ceo@brand.com">
                         </div>
                         <div>
-                            <label class="block text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-2 mono">Name of Niche</label>
-                            <input type="text" name="niche-name" required class="w-full bg-black border border-slate-800 text-white px-4 py-3 rounded focus:outline-none focus:border-[#D90429] transition mono text-sm" placeholder="e.g., Cat Litter Box">
+                            <label class="block text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-2 mono">Niche Name</label>
+                            <input type="text" name="niche-name" id="niche-field" required class="w-full bg-black border border-slate-800 text-white px-4 py-3 rounded focus:outline-none focus:border-[#D90429] transition mono text-sm" placeholder="e.g., Cat Litter Box">
                         </div>
                     </div>
 
                     <div class="bg-red-900/5 border border-red-900/20 p-4 rounded text-xs text-slate-400 mb-4">
-                        <span class="text-white font-bold uppercase tracking-widest">Required Amazon POE Datasets:</span><br>
+                        <span class="text-white font-bold uppercase tracking-widest">Required Amazon POE Datasets:</span>
                         <ul class="mt-2 space-y-1">
                             <li class="flex items-center"><span class="text-[#D90429] mr-2 font-black">&bull;</span> Products Report (.csv)</li>
                             <li class="flex items-center"><span class="text-[#D90429] mr-2 font-black">&bull;</span> Search Terms Report (.csv)</li>
@@ -84,7 +83,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
                             </svg>
                             <p class="text-white font-bold text-sm mb-1 uppercase tracking-widest">Drag & Drop Amazon CSVs</p>
-                            <p class="text-slate-500 text-[10px] mono">Both POE reports required for Phase 2/3 analysis</p>
+                            <p class="text-slate-500 text-[10px] mono">Select both reports simultaneously</p>
                         </div>
                     </div>
                     <div id="file-list" class="text-[10px] mono text-green-500 hidden space-y-1 mt-4"></div>
@@ -92,7 +91,7 @@
                     <div class="flex items-start mt-6">
                         <input type="checkbox" required class="mt-1 mr-3 accent-[#D90429]">
                         <p class="text-[10px] text-slate-500 leading-relaxed uppercase tracking-wider">
-                            I accept the <a href="#" class="text-white underline">NDA Protocol</a>. I acknowledge that proprietary data is processed locally and purged within 24 hours.
+                            I accept the NDA Protocol. I acknowledge that data is processed locally and purged within 24 hours.
                         </p>
                     </div>
 
@@ -104,163 +103,94 @@
         </div>
     </section>
 
-    <section id="pricing" class="max-w-6xl mx-auto px-6 py-32">
-        <div class="grid md:grid-cols-3 gap-8 items-end">
-            <div class="glass p-8 rounded-lg">
-                <h3 class="text-[10px] font-black uppercase tracking-[0.3em] mb-4 text-slate-500">Risk Teaser</h3>
-                <div class="text-4xl font-black mb-2">$0</div>
-                <p class="text-[10px] text-slate-500 mb-8 mono">Delivered within 24H</p>
-                <ul class="text-[11px] space-y-4 text-slate-400 mb-8 mono uppercase tracking-widest">
-                    <li><span class="text-green-500">&check;</span> EBITDA Leakage Sum ($)</li>
-                    <li><span class="text-green-500">&check;</span> True Entry Barrier</li>
-                    <li><span class="text-red-500">&times;</span> Keywords Redacted</li>
-                </ul>
-                <a href="#terminal" class="block w-full border border-white/20 py-3 text-center font-bold uppercase text-[10px] hover:bg-white hover:text-black transition">Current Step</a>
-            </div>
-
-            <div class="border-2 border-[#D90429] p-10 rounded-lg bg-zinc-950 relative shadow-2xl shadow-red-900/10 scale-105">
-                <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-[#D90429] text-white px-3 py-1 text-[8px] font-black uppercase tracking-widest">
-                    Most Selected
-                </div>
-                <h3 class="text-[10px] font-black uppercase tracking-[0.3em] mb-4 text-[#D90429]">The Oracle Quant</h3>
-                <div class="text-5xl font-black mb-2">$499</div>
-                <p class="text-[10px] text-slate-500 mb-8 mono uppercase tracking-widest">One-time protocol</p>
-                <ul class="text-[11px] space-y-4 text-white mb-8 mono uppercase tracking-widest">
-                    <li><span class="text-green-500">&check;</span> Full Data Room Access</li>
-                    <li><span class="text-green-500">&check;</span> Lethargy Matrix Unlocked</li>
-                    <li><span class="text-green-500">&check;</span> Bulk Upload CSV (Negative)</li>
-                    <li><span class="text-green-500">&check;</span> Cannibalization Audit</li>
-                </ul>
-                <a href="#" class="block w-full bg-[#D90429] py-4 text-center font-bold uppercase text-[10px] hover:bg-red-700 transition">Unlock Full Data Room</a>
-            </div>
-
-            <div class="glass p-8 rounded-lg">
-                <h3 class="text-[10px] font-black uppercase tracking-[0.3em] mb-4 text-slate-500">M&A Advisory</h3>
-                <div class="text-4xl font-black mb-2">$1,499</div>
-                <p class="text-[10px] text-slate-500 mb-8 mono uppercase tracking-widest">For Funds / Aggregators</p>
-                <ul class="text-[11px] space-y-4 text-slate-400 mb-8 mono uppercase tracking-widest">
-                    <li><span class="text-green-500">&check;</span> Everything in Quant</li>
-                    <li><span class="text-green-500">&check;</span> 45-Min Strategy Session</li>
-                    <li><span class="text-green-500">&check;</span> Post-Acquisition Plan</li>
-                </ul>
-                <a href="mailto:ceo@kalynchuk.com" class="block w-full border border-white/20 py-3 text-center font-bold uppercase text-[10px] hover:bg-white hover:text-black transition">Enquire</a>
-            </div>
-        </div>
-    </section>
-
-    <footer class="border-t border-white/5 py-12 text-center">
+    <footer class="py-12 text-center border-t border-white/5">
         <p class="text-[10px] text-slate-600 font-bold uppercase tracking-widest mono">&copy; 2026 Kalynchuk. Built for Institutional E-commerce.</p>
     </footer>
 
     <script>
-    // Ждем полной загрузки DOM, чтобы переменные не были undefined
-    document.addEventListener('DOMContentLoaded', () => {
-        const forminit = new Forminit();
-        const FORM_ID = "fzjy82sp7u6";
+        document.addEventListener('DOMContentLoaded', () => {
+            const forminit = new Forminit();
+            const FORM_ID = "fzjy82sp7u6";
 
-        const dropzone = document.getElementById('dropzone');
-        const fileInput = document.getElementById('file-upload');
-        const fileList = document.getElementById('file-list');
-        const auditForm = document.getElementById('audit-form');
-        const submitBtn = document.getElementById('submit-btn');
+            const dropzone = document.getElementById('dropzone');
+            const fileInput = document.getElementById('file-upload');
+            const fileList = document.getElementById('file-list');
+            const auditForm = document.getElementById('audit-form');
+            const submitBtn = document.getElementById('submit-btn');
 
-        // Глобальный счетчик файлов
-        let currentFilesCount = 0;
+            let currentFilesCount = 0;
 
-        // 1. Динамические заголовки (SKAGs)
-        const urlParams = new URLSearchParams(window.location.search);
-        const keyword = urlParams.get('keyword');
-        const h1 = document.getElementById('dynamic-h1');
-        
-        if (h1 && (keyword === 'M&A' || keyword === 'm-and-a')) {
-            h1.innerHTML = 'AUTOMATED <span class="text-[#D90429]">DUE DILIGENCE</span> <br> FOR AMAZON M&A.';
-        } else if (h1 && keyword === 'PPC') {
-            h1.innerHTML = 'DETECT HIDDEN <span class="text-[#D90429]">EBITDA LEAKAGE</span> <br> IN YOUR PPC.';
-        }
-
-        // 2. Функции обработки файлов
-        function updateUI(files) {
-            fileList.innerHTML = '';
-            currentFilesCount = files.length;
-            
-            if (currentFilesCount > 0) {
-                [...files].forEach(file => {
-                    fileList.innerHTML += `<div class="text-green-500 font-mono text-[10px] uppercase tracking-widest">[SECURE] ${file.name} - Ready</div>`;
-                });
-                fileList.classList.remove('hidden');
-            } else {
-                fileList.classList.add('hidden');
+            // Update UI with file names
+            function updateUI(files) {
+                fileList.innerHTML = '';
+                currentFilesCount = files.length;
+                if (currentFilesCount > 0) {
+                    [...files].forEach(file => {
+                        fileList.innerHTML += `<div class="text-green-500 font-mono text-[10px] uppercase tracking-widest">[SECURE] ${file.name} - Ready</div>`;
+                    });
+                    fileList.classList.remove('hidden');
+                } else {
+                    fileList.classList.add('hidden');
+                }
             }
-        }
 
-        // 3. Drag & Drop логика
-        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eName => {
-            dropzone.addEventListener(eName, (e) => {
-                e.preventDefault();
-                e.stopPropagation();
+            // Event Listeners for Drag & Drop
+            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(name => {
+                dropzone.addEventListener(name, (e) => { e.preventDefault(); e.stopPropagation(); });
             });
-        });
 
-        ['dragenter', 'dragover'].forEach(eName => {
-            dropzone.addEventListener(eName, () => dropzone.classList.add('drag-over'));
-        });
+            ['dragenter', 'dragover'].forEach(name => {
+                dropzone.addEventListener(name, () => dropzone.classList.add('drag-over'));
+            });
 
-        ['dragleave', 'drop'].forEach(eName => {
-            dropzone.addEventListener(eName, () => dropzone.classList.remove('drag-over'));
-        });
+            ['dragleave', 'drop'].forEach(name => {
+                dropzone.addEventListener(name, () => dropzone.classList.remove('drag-over'));
+            });
 
-        dropzone.addEventListener('drop', (e) => {
-            const droppedFiles = e.dataTransfer.files;
-            // Передаем файлы в скрытый input
-            fileInput.files = droppedFiles;
-            updateUI(droppedFiles);
-        });
+            dropzone.addEventListener('drop', (e) => {
+                fileInput.files = e.dataTransfer.files;
+                updateUI(fileInput.files);
+            });
 
-        fileInput.addEventListener('change', (e) => {
-            updateUI(e.target.files);
-        });
+            fileInput.addEventListener('change', (e) => {
+                updateUI(e.target.files);
+            });
 
-        // 4. Отправка формы через Forminit
-        auditForm.addEventListener("submit", async (e) => {
-            e.preventDefault();
-            
-            // Проверка на количество файлов (Products + Search Terms)
-            if (currentFilesCount < 2) {
-                alert("PROTOCOL ERROR: Two specific datasets are required for the algorithm (Products and Search Terms). Please select both files.");
-                return;
-            }
-
-            submitBtn.innerHTML = "UPLOADING DATA PACKET...";
-            submitBtn.disabled = true;
-            submitBtn.style.opacity = "0.5";
-
-            const formData = new FormData(auditForm);
-            
-            try {
-                const { data, error } = await forminit.submit(FORM_ID, formData);
-
-                if (error) {
-                    throw new Error(error.message);
+            // Handle Submit
+            auditForm.addEventListener("submit", async (e) => {
+                e.preventDefault();
+                
+                if (currentFilesCount < 2) {
+                    alert("PROTOCOL ERROR: Both Amazon POE reports (Products and Search Terms) are required.");
+                    return;
                 }
 
-                // Успешная отправка
-                submitBtn.innerHTML = "DATA SECURED. CHECK EMAIL WITHIN 24H.";
-                submitBtn.classList.replace("bg-white", "bg-green-600");
-                submitBtn.classList.replace("text-black", "text-white");
-                submitBtn.style.opacity = "1";
-                
-                auditForm.reset();
-                fileList.classList.add('hidden');
-                currentFilesCount = 0;
+                submitBtn.innerHTML = "UPLOADING DATA PACKET...";
+                submitBtn.disabled = true;
+                submitBtn.style.opacity = "0.5";
 
-            } catch (err) {
-                alert("System Error: " + err.message);
-                submitBtn.innerHTML = "GENERATE TEASER REPORT";
-                submitBtn.disabled = false;
-                submitBtn.style.opacity = "1";
-            }
+                const formData = new FormData(auditForm);
+                
+                try {
+                    const { data, error } = await forminit.submit(FORM_ID, formData);
+                    if (error) throw new Error(error.message);
+
+                    submitBtn.innerHTML = "DATA SECURED. CHECK EMAIL WITHIN 24H.";
+                    submitBtn.classList.replace("bg-white", "bg-green-600");
+                    submitBtn.classList.replace("text-black", "text-white");
+                    submitBtn.style.opacity = "1";
+                    
+                    auditForm.reset();
+                    fileList.classList.add('hidden');
+                    currentFilesCount = 0;
+                } catch (err) {
+                    alert("System Error: " + err.message);
+                    submitBtn.innerHTML = "GENERATE TEASER REPORT";
+                    submitBtn.disabled = false;
+                    submitBtn.style.opacity = "1";
+                }
+            });
         });
-    });
-</script>
+    </script>
 </body>
 </html>
