@@ -1,93 +1,251 @@
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        // Инициализация Forminit
-        const forminit = new Forminit();
-        const FORM_ID = "fzjy82sp7u6";
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalynchuk | Amazon EBITDA Protection & M&A Due Diligence</title>
+    
+    <script src="https://forminit.com/sdk/v1/forminit.js"></script>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #050505; color: #E2E8F0; }
+        .mono { font-family: 'Roboto Mono', monospace; }
+        .kill-zone { border-left: 3px solid #D90429; background: linear-gradient(90deg, rgba(217, 4, 41, 0.05) 0%, transparent 100%); }
+        .glass { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.08); }
+        .drag-over { border-color: #D90429 !important; background-color: rgba(217, 4, 41, 0.1) !important; }
+    </style>
+</head>
+<body class="antialiased">
 
-        const dropzone = document.getElementById('dropzone');
-        const fileInput = document.getElementById('file-upload');
-        const fileList = document.getElementById('file-list');
-        const auditForm = document.getElementById('audit-form');
-        const submitBtn = document.getElementById('submit-btn');
+    <nav class="max-w-6xl mx-auto px-6 py-6 flex justify-between items-center border-b border-white/5">
+        <div class="text-2xl font-black tracking-tighter uppercase italic text-white">Kalynchuk<span class="text-[#D90429]">.</span></div>
+        <div class="hidden md:flex space-x-8 text-[10px] font-bold uppercase tracking-widest mono text-slate-500">
+            <a href="#terminal" class="hover:text-white transition">Data Ingestion</a>
+            <a href="#pricing" class="hover:text-white transition">Pricing</a>
+            <a href="research.html" class="hover:text-white transition">Intel Library</a>
+        </div>
+        <a href="#terminal" class="bg-white text-black px-5 py-2 text-[10px] font-black uppercase tracking-widest hover:bg-[#D90429] hover:text-white transition text-center">Run Audit</a>
+    </nav>
 
-        // Контейнер для файлов
-        let dataTransfer = new DataTransfer();
+    <header class="max-w-6xl mx-auto px-6 pt-24 pb-20 text-center">
+        <div class="inline-block border border-[#D90429]/50 bg-[#D90429]/10 px-4 py-1.5 rounded-sm text-[10px] font-bold uppercase tracking-[0.2em] text-[#D90429] mb-8 mono">
+            Zero Data Retention Policy
+        </div>
+        <h1 id="dynamic-h1" class="text-6xl md:text-8xl font-black tracking-tighter leading-none mb-8 uppercase text-white">
+            Stop <span class="text-[#D90429]">EBITDA Leakage</span> <br> on Amazon.
+        </h1>
+        <p class="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed mb-8 font-medium italic">
+            Algorithmic Due Diligence for M&A aggregators and $1M+ brands. 
+            Powered by Market Kinematics and your raw Amazon data.
+        </p>
+        <div class="max-w-2xl mx-auto bg-white/5 border border-white/10 p-6 rounded-lg mb-12 text-sm text-slate-400">
+            <h3 class="text-white font-bold mb-2 uppercase tracking-widest mono text-xs">The $5,000 ROI Guarantee</h3>
+            <p>If the algorithm cannot locate at least $5,000 of annualized budget waste in your niche, the full audit is on me. You pay nothing.</p>
+        </div>
+        <a href="#terminal" class="inline-block bg-[#D90429] text-white px-12 py-6 font-black uppercase tracking-widest hover:scale-105 transition shadow-2xl shadow-red-900/20 text-sm">
+            Access The Terminal
+        </a>
+    </header>
 
-        function updateUI() {
-            fileList.innerHTML = '';
-            const files = dataTransfer.files;
-            if (files.length > 0) {
-                Array.from(files).forEach(file => {
-                    fileList.innerHTML += `<div class="text-green-500 font-mono text-[10px] uppercase tracking-widest italic">[READY] &bull; ${file.name}</div>`;
-                });
-                fileList.classList.remove('hidden');
-            } else {
-                fileList.classList.add('hidden');
-            }
-        }
-
-        // Drag & Drop события
-        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(name => {
-            dropzone.addEventListener(name, (e) => { e.preventDefault(); e.stopPropagation(); });
-        });
-
-        ['dragenter', 'dragover'].forEach(name => {
-            dropzone.addEventListener(name, () => dropzone.classList.add('drag-over'));
-        });
-
-        ['dragleave', 'drop'].forEach(name => {
-            dropzone.addEventListener(name, () => dropzone.classList.remove('drag-over'));
-        });
-
-        dropzone.addEventListener('drop', (e) => {
-            const files = e.dataTransfer.files;
-            // Очищаем старое и добавляем новое (чтобы всегда было ровно то, что перетянули)
-            dataTransfer = new DataTransfer();
-            Array.from(files).forEach(file => dataTransfer.items.add(file));
-            fileInput.files = dataTransfer.files;
-            updateUI();
-        });
-
-        fileInput.addEventListener('change', (e) => {
-            dataTransfer = new DataTransfer();
-            Array.from(e.target.files).forEach(file => dataTransfer.items.add(file));
-            updateUI();
-        });
-
-        // Отправка
-        auditForm.addEventListener("submit", async (e) => {
-            e.preventDefault();
-            
-            if (dataTransfer.files.length < 2) {
-                alert("PROTOCOL ERROR: 2 specific datasets are required (Products and Search Terms). Please drag them together.");
-                return;
-            }
-
-            submitBtn.innerHTML = "UPLOADING DATA PACKET...";
-            submitBtn.disabled = true;
-
-            // Собираем данные
-            const formData = new FormData(auditForm);
-            
-            try {
-                const { data, error } = await forminit.submit(FORM_ID, formData);
+    <section id="terminal" class="bg-zinc-950 py-24 border-y border-white/5">
+        <div class="max-w-3xl mx-auto px-6">
+            <div class="glass p-10 rounded-xl relative">
+                <div class="flex items-center justify-between mb-8 border-b border-white/5 pb-6">
+                    <h2 class="text-2xl font-black uppercase tracking-tighter italic text-white">Data Ingestion Protocol</h2>
+                    <span class="text-[10px] mono text-slate-500 flex items-center"><span class="w-2 h-2 rounded-full bg-green-500 mr-2 animate-pulse"></span> SYSTEM READY</span>
+                </div>
                 
-                if (error) throw new Error(error.message);
+                <form id="audit-form" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-2 mono">Corporate Email</label>
+                            <input type="email" name="fi-sender-email" id="email-field" required class="w-full bg-black border border-slate-800 text-white px-4 py-3 rounded focus:outline-none focus:border-[#D90429] transition mono text-sm" placeholder="ceo@brand.com">
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-2 mono">Name of Niche</label>
+                            <input type="text" name="niche-name" id="niche-field" required class="w-full bg-black border border-slate-800 text-white px-4 py-3 rounded focus:outline-none focus:border-[#D90429] transition mono text-sm" placeholder="e.g., Cat Litter Box">
+                        </div>
+                    </div>
 
-                submitBtn.innerHTML = "DATA SECURED. CHECK EMAIL WITHIN 24H.";
-                submitBtn.classList.replace("bg-white", "bg-green-600");
-                submitBtn.classList.replace("text-black", "text-white");
-                
-                auditForm.reset();
+                    <div class="bg-red-900/5 border border-red-900/20 p-5 rounded text-xs text-slate-400 mb-4">
+                        <span class="text-white font-bold uppercase tracking-widest">Required Amazon POE Datasets:</span>
+                        <ul class="mt-3 space-y-2">
+                            <li class="flex items-center"><span class="text-[#D90429] mr-2 font-black italic">PHASE 2 &bull;</span> Products Report (.csv)</li>
+                            <li class="flex items-center"><span class="text-[#D90429] mr-2 font-black italic">PHASE 3 &bull;</span> Search Terms Report (.csv)</li>
+                        </ul>
+                    </div>
+
+                    <div id="dropzone" class="border-2 border-dashed border-slate-700 rounded-lg p-12 text-center transition-all cursor-pointer hover:border-slate-500 relative group">
+                        <input type="file" id="file-upload" name="fi-file-attachment" multiple accept=".csv" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10">
+                        <div class="pointer-events-none">
+                            <svg class="mx-auto h-10 w-10 text-slate-500 group-hover:text-white transition mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                            </svg>
+                            <p class="text-white font-bold text-sm mb-1 uppercase tracking-widest">Drag & Drop Amazon CSVs</p>
+                            <p class="text-slate-500 text-[10px] mono">Select both reports simultaneously</p>
+                        </div>
+                    </div>
+                    <div id="file-list" class="text-[10px] mono text-green-500 hidden space-y-1 mt-4"></div>
+
+                    <div class="flex items-start mt-6 text-left">
+                        <input type="checkbox" required class="mt-1 mr-3 accent-[#D90429]">
+                        <p class="text-[10px] text-slate-500 leading-relaxed uppercase tracking-wider">
+                            I accept the NDA Protocol. I acknowledge that proprietary data is processed locally and purged within 24 hours.
+                        </p>
+                    </div>
+
+                    <button type="submit" id="submit-btn" class="w-full bg-white text-black font-black uppercase tracking-widest py-4 rounded hover:bg-slate-200 transition mt-4 text-xs">
+                        Generate Teaser Report
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="max-w-6xl mx-auto px-6 py-32 border-t border-white/5">
+        <div class="text-center mb-20">
+            <h2 class="text-4xl font-black mb-4 uppercase italic tracking-tighter text-white">Transparent Unit Economics.</h2>
+            <p class="text-slate-400">No retainers. No percentage of ad spend. Just results.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 items-end">
+            <div class="glass p-8 rounded-lg border-white/5">
+                <h3 class="text-[10px] font-black uppercase tracking-[0.3em] mb-4 text-slate-500">Risk Teaser</h3>
+                <div class="text-4xl font-black mb-2 text-white">$0</div>
+                <p class="text-[10px] text-slate-500 mb-8 mono uppercase tracking-widest text-left">Initial Assessment</p>
+                <ul class="text-[11px] space-y-4 text-slate-400 mb-8 mono uppercase tracking-widest text-left">
+                    <li class="flex items-center"><span class="text-green-500 mr-2">&check;</span> EBITDA Leakage Sum ($)</li>
+                    <li class="flex items-center"><span class="text-green-500 mr-2">&check;</span> Competitive Lethargy Index</li>
+                    <li class="flex items-center"><span class="text-green-500 mr-2">&check;</span> True Entry Barrier (ML)</li>
+                    <li class="flex items-center text-slate-600"><span class="text-red-500 mr-2">&times;</span> Keywords Redacted</li>
+                </ul>
+                <a href="#terminal" class="block w-full border border-white/20 py-3 text-center font-bold uppercase text-[10px] hover:bg-white hover:text-black transition">Get Teaser</a>
+            </div>
+
+            <div class="border-2 border-[#D90429] p-10 rounded-lg bg-zinc-950 relative shadow-2xl shadow-red-900/10 scale-105">
+                <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-[#D90429] text-white px-3 py-1 text-[8px] font-black uppercase tracking-widest">
+                    Most Selected
+                </div>
+                <h3 class="text-[10px] font-black uppercase tracking-[0.3em] mb-4 text-[#D90429]">The Oracle Quant</h3>
+                <div class="text-5xl font-black mb-2 text-white">$499</div>
+                <p class="text-[10px] text-slate-500 mb-8 mono uppercase tracking-widest text-left">Full Niche Audit</p>
+                <ul class="text-[11px] space-y-4 text-white mb-8 mono uppercase tracking-widest text-left">
+                    <li class="flex items-center"><span class="text-green-500 mr-2">&check;</span> Unredacted PDF Report</li>
+                    <li class="flex items-center"><span class="text-green-500 mr-2">&check;</span> ASIN Vulnerability Matrix</li>
+                    <li class="flex items-center"><span class="text-green-500 mr-2">&check;</span> Negative Keyword Bulk CSV</li>
+                    <li class="flex items-center"><span class="text-green-500 mr-2">&check;</span> Semantic Monopoly Blueprint</li>
+                    <li class="flex items-center"><span class="text-green-500 mr-2">&check;</span> Internal Cannibalization Audit</li>
+                </ul>
+                <a href="#" class="block w-full bg-[#D90429] py-4 text-center font-bold uppercase text-[10px] hover:bg-red-700 transition shadow-xl text-white">Unlock Full Data Room</a>
+            </div>
+
+            <div class="glass p-8 rounded-lg border-white/5 text-left">
+                <h3 class="text-[10px] font-black uppercase tracking-[0.3em] mb-4 text-slate-500">M&A Advisory</h3>
+                <div class="text-4xl font-black mb-2 text-white">$1,499</div>
+                <p class="text-[10px] text-slate-500 mb-8 mono uppercase tracking-widest">Strategic Partnership</p>
+                <ul class="text-[11px] space-y-4 text-slate-400 mb-8 mono uppercase tracking-widest">
+                    <li class="flex items-center"><span class="text-green-500 mr-2">&check;</span> Everything in Quant package</li>
+                    <li class="flex items-center"><span class="text-green-500 mr-2">&check;</span> 60-Min Strategy Deep Dive</li>
+                    <li class="flex items-center"><span class="text-green-500 mr-2">&check;</span> Due Diligence Protocol</li>
+                    <li class="flex items-center"><span class="text-green-500 mr-2">&check;</span> Post-Acquisition Implementation</li>
+                </ul>
+                <a href="mailto:ceo@kalynchuk.com" class="block w-full border border-white/20 py-3 text-center font-bold uppercase text-[10px] hover:bg-white hover:text-black transition">Enquire</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 text-center border-t border-white/5">
+        <p class="text-[10px] text-slate-600 font-bold uppercase tracking-widest mono">&copy; 2026 Kalynchuk. Built for Institutional E-commerce.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const forminit = new Forminit();
+            const FORM_ID = "fzjy82sp7u6";
+
+            const dropzone = document.getElementById('dropzone');
+            const fileInput = document.getElementById('file-upload');
+            const fileList = document.getElementById('file-list');
+            const auditForm = document.getElementById('audit-form');
+            const submitBtn = document.getElementById('submit-btn');
+
+            let dataTransfer = new DataTransfer();
+
+            function updateUI() {
+                fileList.innerHTML = '';
+                const files = dataTransfer.files;
+                if (files.length > 0) {
+                    Array.from(files).forEach(file => {
+                        fileList.innerHTML += `<div class="text-green-500 font-mono text-[10px] uppercase tracking-widest italic">[READY] &bull; ${file.name}</div>`;
+                    });
+                    fileList.classList.remove('hidden');
+                } else {
+                    fileList.classList.add('hidden');
+                }
+            }
+
+            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(name => {
+                dropzone.addEventListener(name, (e) => { e.preventDefault(); e.stopPropagation(); });
+            });
+
+            ['dragenter', 'dragover'].forEach(name => {
+                dropzone.addEventListener(name, () => dropzone.classList.add('drag-over'));
+            });
+
+            ['dragleave', 'drop'].forEach(name => {
+                dropzone.addEventListener(name, () => dropzone.classList.remove('drag-over'));
+            });
+
+            dropzone.addEventListener('drop', (e) => {
+                const files = e.dataTransfer.files;
                 dataTransfer = new DataTransfer();
+                Array.from(files).forEach(file => dataTransfer.items.add(file));
                 fileInput.files = dataTransfer.files;
-                fileList.classList.add('hidden');
+                updateUI();
+            });
 
-            } catch (err) {
-                alert("System Error: " + err.message);
-                submitBtn.innerHTML = "GENERATE TEASER REPORT";
-                submitBtn.disabled = false;
-            }
+            fileInput.addEventListener('change', (e) => {
+                dataTransfer = new DataTransfer();
+                Array.from(e.target.files).forEach(file => dataTransfer.items.add(file));
+                updateUI();
+            });
+
+            auditForm.addEventListener("submit", async (e) => {
+                e.preventDefault();
+                
+                if (dataTransfer.files.length < 2) {
+                    alert("PROTOCOL ERROR: Both Amazon reports (Products and Search Terms) are required.");
+                    return;
+                }
+
+                submitBtn.innerHTML = "UPLOADING DATA PACKET...";
+                submitBtn.disabled = true;
+
+                const formData = new FormData(auditForm);
+                
+                try {
+                    const { data, error } = await forminit.submit(FORM_ID, formData);
+                    if (error) throw new Error(error.message);
+
+                    submitBtn.innerHTML = "DATA SECURED. CHECK EMAIL WITHIN 24H.";
+                    submitBtn.classList.replace("bg-white", "bg-green-600");
+                    submitBtn.classList.replace("text-black", "text-white");
+                    
+                    auditForm.reset();
+                    dataTransfer = new DataTransfer();
+                    fileInput.files = dataTransfer.files;
+                    fileList.classList.add('hidden');
+                } catch (err) {
+                    alert("System Error: " + err.message);
+                    submitBtn.innerHTML = "GENERATE TEASER REPORT";
+                    submitBtn.disabled = false;
+                }
+            });
         });
-    });
-</script>
+    </script>
+</body>
+</html>
