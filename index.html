@@ -6,16 +6,13 @@
     <title>Kalynchuk | Amazon EBITDA Protection & M&A Due Diligence</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
-    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #050505; color: #E2E8F0; margin: 0; padding: 0; overflow-x: hidden; }
         .mono { font-family: 'Roboto Mono', monospace; }
-        .kill-zone { border-left: 3px solid #D90429; background: linear-gradient(90deg, rgba(217, 4, 41, 0.05) 0%, transparent 100%); }
         .glass { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.08); backdrop-filter: blur(10px); }
         .drag-over { border-color: #D90429 !important; background-color: rgba(217, 4, 41, 0.1) !important; }
-        .blur-report { filter: blur(4px); pointer-events: none; user-select: none; }
     </style>
 </head>
 <body class="antialiased text-slate-200">
@@ -42,7 +39,7 @@
         </h1>
         <p class="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed mb-10 font-medium italic">
             Data-as-a-Product for M&A aggregators and $1M+ brands. 
-            Built on Isolation Forest math and your raw Opportunity Explorer data.
+            Built on Market Kinematics and your raw Opportunity Explorer data.
         </p>
         
         <div class="max-w-2xl mx-auto bg-white/5 border border-white/10 p-6 rounded-lg mb-12 text-sm text-slate-300 relative overflow-hidden">
@@ -92,7 +89,7 @@
     </section>
 
     <section id="terminal" class="bg-zinc-950 py-32 border-y border-white/5 relative">
-        <div class="max-w-3xl mx-auto px-6 text-center">
+        <div class="max-w-4xl mx-auto px-6">
             <div class="glass p-10 md:p-14 rounded-2xl relative text-left shadow-2xl">
                 <div class="flex items-center justify-between mb-8 border-b border-white/10 pb-6">
                     <h2 class="text-2xl font-black uppercase tracking-tighter italic text-white">Data Ingestion Protocol</h2>
@@ -113,12 +110,28 @@
                         </div>
                     </div>
 
+                    <div class="bg-black/50 border border-slate-800 rounded-xl p-6 shadow-inner">
+                        <h4 class="text-white font-black uppercase tracking-widest mb-4 text-xs flex items-center">
+                            <svg class="w-4 h-4 mr-2 text-[#D90429]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            Data Extraction Guide (Amazon Seller Central)
+                        </h4>
+                        <ol class="space-y-3 font-mono text-[10px] uppercase tracking-wide text-slate-400">
+                            <li><span class="text-slate-600 mr-2">Step 1:</span> Go to <span class="text-white">Growth &rarr; Product Opportunity Explorer (POE)</span>.</li>
+                            <li><span class="text-slate-600 mr-2">Step 2:</span> Find and open your most relevant target niche.</li>
+                            <li><span class="text-slate-600 mr-2">Step 3:</span> Open <span class="text-white">"Products"</span> tab. Scroll to bottom, set MAX rows per page. Click Download (CSV).</li>
+                            <li><span class="text-slate-600 mr-2">Step 4:</span> Open <span class="text-white">"Search Terms"</span> tab. Scroll to bottom, set MAX rows. Click Download (CSV).</li>
+                        </ol>
+                        <div class="mt-4 pt-4 border-t border-slate-800 text-xs font-black text-[#D90429] uppercase tracking-widest">
+                            ⚠️ Critical: You must upload BOTH files SIMULTANEOUSLY.
+                        </div>
+                    </div>
+
                     <div id="dropzone" class="border-2 border-dashed border-slate-700 hover:border-slate-500 bg-black/30 rounded-xl p-12 text-center transition-all cursor-pointer relative group">
                         <input type="file" id="file-upload" multiple accept=".csv" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10">
                         <div class="pointer-events-none">
                             <svg class="mx-auto h-10 w-10 text-slate-600 group-hover:text-[#D90429] transition mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" /></svg>
-                            <p class="text-white font-black text-sm mb-2 uppercase tracking-widest">Drag &amp; Drop 2 CSVs Here</p>
-                            <p class="text-slate-500 text-[10px] mono uppercase tracking-tighter">Requires Products &amp; Search Terms from Amazon POE</p>
+                            <p class="text-white font-black text-sm mb-2 uppercase tracking-widest">Drag &amp; Drop BOTH CSVs Here</p>
+                            <p class="text-slate-500 text-[10px] mono uppercase tracking-tighter">Products Report + Search Terms Report</p>
                         </div>
                     </div>
                     <div id="file-list" class="text-[10px] mono text-green-500 hidden space-y-2 mt-4 bg-green-500/5 p-4 border border-green-500/10 rounded"></div>
@@ -126,7 +139,7 @@
                     <div class="flex items-start mt-6">
                         <input type="checkbox" required class="mt-1 mr-3 accent-[#D90429] w-4 h-4">
                         <p class="text-[10px] text-slate-500 leading-relaxed uppercase tracking-wider">
-                            I accept the NDA Protocol. I acknowledge that proprietary data is processed locally via Python runtime and purged securely within 24 hours.
+                            I accept the NDA Protocol. I acknowledge that proprietary data is processed locally and purged within 24 hours.
                         </p>
                     </div>
 
@@ -140,23 +153,53 @@
 
     <section class="max-w-6xl mx-auto px-6 py-32">
         <div class="text-center mb-16">
-            <h2 class="text-3xl font-black mb-4 uppercase italic text-white">What You Will See.</h2>
+            <h2 class="text-4xl font-black mb-4 uppercase italic text-white">What You Will See.</h2>
+            <p class="text-slate-500 mono text-xs uppercase tracking-widest">A glimpse into the Oracle Teaser Report</p>
         </div>
-        <div class="glass p-12 rounded-2xl relative overflow-hidden border-white/10">
-            <div class="absolute top-8 right-8 bg-[#D90429] text-white px-6 py-2 font-black uppercase text-xs rotate-3 z-10 shadow-2xl border border-red-400/30">
-                Budget Leak Detected: $88,604
+        
+        <div class="relative max-w-4xl mx-auto">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-full flex justify-center">
+                <div class="bg-[#D90429] text-white px-8 py-6 font-black uppercase tracking-widest text-center shadow-[0_0_70px_rgba(217,4,41,0.5)] border border-red-400/30 rounded">
+                    <div class="text-xs mb-2 tracking-[0.3em] text-red-200">Critical EBITDA Leakage Detected</div>
+                    <div class="text-5xl tracking-tighter">$88,604.00</div>
+                </div>
             </div>
-            <div class="blur-report space-y-6 opacity-40">
-                <div class="h-6 bg-slate-700 w-3/4 rounded"></div>
-                <div class="h-4 bg-slate-800 w-1/2 rounded"></div>
-                <div class="grid grid-cols-3 gap-6 py-8">
-                    <div class="h-32 bg-slate-800 rounded border border-slate-600"></div>
-                    <div class="h-32 bg-slate-800 rounded border border-slate-600"></div>
-                    <div class="h-32 bg-slate-800 rounded border border-slate-600"></div>
+
+            <div class="glass p-8 rounded-2xl border-white/10 shadow-2xl blur-[6px] opacity-60 bg-black/50 select-none">
+                <div class="flex justify-between items-end mb-10 border-b border-slate-800 pb-6">
+                    <div>
+                        <div class="h-2 w-24 bg-slate-700 mb-3 rounded"></div>
+                        <div class="h-6 w-64 bg-slate-600 rounded"></div>
+                    </div>
+                    <div class="flex space-x-3">
+                        <div class="h-8 w-8 bg-slate-800 rounded-full"></div>
+                        <div class="h-8 w-24 bg-[#D90429] rounded"></div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-4 gap-4 mb-10">
+                    <div class="h-20 bg-zinc-900 border border-slate-800 rounded-lg p-4"><div class="h-2 w-10 bg-slate-700 mb-4 rounded"></div><div class="h-6 w-20 bg-slate-500 rounded"></div></div>
+                    <div class="h-20 bg-zinc-900 border border-slate-800 rounded-lg p-4"><div class="h-2 w-10 bg-slate-700 mb-4 rounded"></div><div class="h-6 w-24 bg-[#D90429]/80 rounded"></div></div>
+                    <div class="h-20 bg-zinc-900 border border-slate-800 rounded-lg p-4"><div class="h-2 w-10 bg-slate-700 mb-4 rounded"></div><div class="h-6 w-16 bg-slate-500 rounded"></div></div>
+                    <div class="h-20 bg-zinc-900 border border-slate-800 rounded-lg p-4"><div class="h-2 w-10 bg-slate-700 mb-4 rounded"></div><div class="h-6 w-20 bg-slate-500 rounded"></div></div>
+                </div>
+                <div class="grid grid-cols-3 gap-6 mb-8">
+                    <div class="col-span-2 h-48 bg-zinc-900 border border-slate-800 rounded-lg flex items-end p-6 space-x-4">
+                        <div class="w-full bg-slate-700 h-[30%] rounded-t"></div>
+                        <div class="w-full bg-slate-700 h-[50%] rounded-t"></div>
+                        <div class="w-full bg-[#D90429] h-[90%] rounded-t"></div>
+                        <div class="w-full bg-slate-700 h-[40%] rounded-t"></div>
+                        <div class="w-full bg-slate-700 h-[60%] rounded-t"></div>
+                    </div>
+                    <div class="col-span-1 h-48 bg-zinc-900 border border-slate-800 rounded-lg p-6 flex flex-col justify-center space-y-4">
+                        <div class="h-3 w-full bg-slate-700 rounded"></div>
+                        <div class="h-3 w-5/6 bg-slate-600 rounded"></div>
+                        <div class="h-3 w-4/6 bg-[#D90429] rounded"></div>
+                        <div class="h-3 w-2/6 bg-slate-700 rounded"></div>
+                    </div>
                 </div>
             </div>
             <div class="text-center mt-12 relative z-20">
-                <p class="text-2xl font-bold mb-4 italic text-white">"Your competitors are burning this cash right now.<br>Find out who they are."</p>
+                <p class="text-xl font-bold mb-4 italic text-slate-400">"Your competitors are burning this cash right now.<br><span class="text-white">Find out who they are.</span>"</p>
             </div>
         </div>
     </section>
@@ -216,9 +259,8 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // === ВСТАВЬ СВОИ ДАННЫЕ СЮДА ===
             const BASEROW_TOKEN = "EwKKbn9scTuawRqAxTQiIBZQk7VA8CbG";
-            const TABLE_ID = "930440"; // Замени на цифры таблицы
+            const TABLE_ID = "930440"; // ВСТАВЬ СВОЙ ID
 
             const dropzone = document.getElementById('dropzone');
             const fileInput = document.getElementById('file-upload');
@@ -271,7 +313,7 @@
                 e.preventDefault();
                 
                 if (dataTransfer.files.length < 2) {
-                    alert("PROTOCOL ERROR: 2 CSV files required (Products & Search Terms).");
+                    alert("PROTOCOL ERROR: 2 CSV files required (Products & Search Terms). Did you upload BOTH simultaneously?");
                     return;
                 }
 
@@ -281,7 +323,7 @@
                 try {
                     const uploadedFiles = [];
 
-                    // Шаг 1: Загрузка файлов
+                    // Upload
                     for (let file of dataTransfer.files) {
                         const fd = new FormData();
                         fd.append('file', file);
@@ -297,7 +339,7 @@
                         uploadedFiles.push({ "name": fileInfo.name });
                     }
 
-                    // Шаг 2: Создание записи
+                    // Create Row
                     const rowPayload = {
                         "Email": document.getElementById('user-email').value,
                         "Niche": document.getElementById('niche-name').value,
