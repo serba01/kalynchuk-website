@@ -153,18 +153,52 @@
     </footer>
 
     <script>
-        // Forminit Logic
+    // Ждем полной загрузки DOM, чтобы переменные не были undefined
+    document.addEventListener('DOMContentLoaded', () => {
         const forminit = new Forminit();
         const FORM_ID = "fzjy82sp7u6";
 
-        // File handling
         const dropzone = document.getElementById('dropzone');
         const fileInput = document.getElementById('file-upload');
         const fileList = document.getElementById('file-list');
-        let uploadedFilesCount = 0;
+        const auditForm = document.getElementById('audit-form');
+        const submitBtn = document.getElementById('submit-btn');
 
+        // Глобальный счетчик файлов
+        let currentFilesCount = 0;
+
+        // 1. Динамические заголовки (SKAGs)
+        const urlParams = new URLSearchParams(window.location.search);
+        const keyword = urlParams.get('keyword');
+        const h1 = document.getElementById('dynamic-h1');
+        
+        if (h1 && (keyword === 'M&A' || keyword === 'm-and-a')) {
+            h1.innerHTML = 'AUTOMATED <span class="text-[#D90429]">DUE DILIGENCE</span> <br> FOR AMAZON M&A.';
+        } else if (h1 && keyword === 'PPC') {
+            h1.innerHTML = 'DETECT HIDDEN <span class="text-[#D90429]">EBITDA LEAKAGE</span> <br> IN YOUR PPC.';
+        }
+
+        // 2. Функции обработки файлов
+        function updateUI(files) {
+            fileList.innerHTML = '';
+            currentFilesCount = files.length;
+            
+            if (currentFilesCount > 0) {
+                [...files].forEach(file => {
+                    fileList.innerHTML += `<div class="text-green-500 font-mono text-[10px] uppercase tracking-widest">[SECURE] ${file.name} - Ready</div>`;
+                });
+                fileList.classList.remove('hidden');
+            } else {
+                fileList.classList.add('hidden');
+            }
+        }
+
+        // 3. Drag & Drop логика
         ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eName => {
-            dropzone.addEventListener(eName, (e) => { e.preventDefault(); e.stopPropagation(); });
+            dropzone.addEventListener(eName, (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+            });
         });
 
         ['dragenter', 'dragover'].forEach(eName => {
@@ -175,52 +209,58 @@
             dropzone.addEventListener(eName, () => dropzone.classList.remove('drag-over'));
         });
 
-        const updateFileList = (files) => {
-            fileList.innerHTML = '';
-            uploadedFilesCount = files.length;
-            [...files].forEach(file => {
-                fileList.innerHTML += `<div>[SECURE] ${file.name} - Ready</div>`;
-            });
-            if(files.length > 0) fileList.classList.remove('hidden');
-        };
-
-        fileInput.addEventListener('change', (e) => updateFileList(e.target.files));
         dropzone.addEventListener('drop', (e) => {
-            fileInput.files = e.dataTransfer.files;
-            updateFileList(e.dataTransfer.files);
+            const droppedFiles = e.dataTransfer.files;
+            // Передаем файлы в скрытый input
+            fileInput.files = droppedFiles;
+            updateUI(droppedFiles);
         });
 
-        // Form Submit
-        document.getElementById("audit-form").addEventListener("submit", async (e) => {
+        fileInput.addEventListener('change', (e) => {
+            updateUI(e.target.files);
+        });
+
+        // 4. Отправка формы через Forminit
+        auditForm.addEventListener("submit", async (e) => {
             e.preventDefault();
             
-            if (uploadedFilesCount < 2) {
-                alert("PROTOCOL ERROR: Please upload BOTH required Amazon POE reports (Products and Search Terms).");
+            // Проверка на количество файлов (Products + Search Terms)
+            if (currentFilesCount < 2) {
+                alert("PROTOCOL ERROR: Two specific datasets are required for the algorithm (Products and Search Terms). Please select both files.");
                 return;
             }
 
-            const btn = document.getElementById("submit-btn");
-            btn.innerHTML = "UPLOADING DATA PACKET...";
-            btn.classList.add("opacity-50");
-            btn.disabled = true;
+            submitBtn.innerHTML = "UPLOADING DATA PACKET...";
+            submitBtn.disabled = true;
+            submitBtn.style.opacity = "0.5";
 
-            const formData = new FormData(e.target);
-            const { data, error } = await forminit.submit(FORM_ID, formData);
+            const formData = new FormData(auditForm);
+            
+            try {
+                const { data, error } = await forminit.submit(FORM_ID, formData);
 
-            if (error) {
-                alert("System Error: " + error.message);
-                btn.innerHTML = "GENERATE TEASER REPORT";
-                btn.classList.remove("opacity-50");
-                btn.disabled = false;
-                return;
+                if (error) {
+                    throw new Error(error.message);
+                }
+
+                // Успешная отправка
+                submitBtn.innerHTML = "DATA SECURED. CHECK EMAIL WITHIN 24H.";
+                submitBtn.classList.replace("bg-white", "bg-green-600");
+                submitBtn.classList.replace("text-black", "text-white");
+                submitBtn.style.opacity = "1";
+                
+                auditForm.reset();
+                fileList.classList.add('hidden');
+                currentFilesCount = 0;
+
+            } catch (err) {
+                alert("System Error: " + err.message);
+                submitBtn.innerHTML = "GENERATE TEASER REPORT";
+                submitBtn.disabled = false;
+                submitBtn.style.opacity = "1";
             }
-
-            btn.innerHTML = "DATA SECURED. CHECK EMAIL WITHIN 24H.";
-            btn.classList.replace("bg-white", "bg-green-600");
-            btn.classList.replace("text-black", "text-white");
-            e.target.reset();
-            fileList.classList.add('hidden');
         });
-    </script>
+    });
+</script>
 </body>
 </html>
