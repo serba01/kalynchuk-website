@@ -3,94 +3,222 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kalynchuk | Amazon EBITDA Protection</title>
+    <title>Kalynchuk | Amazon EBITDA Protection & M&A Due Diligence</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
+    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #050505; color: #E2E8F0; margin: 0; }
+        body { font-family: 'Inter', sans-serif; background-color: #050505; color: #E2E8F0; margin: 0; padding: 0; overflow-x: hidden; }
         .mono { font-family: 'Roboto Mono', monospace; }
-        .glass { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.08); }
+        .kill-zone { border-left: 3px solid #D90429; background: linear-gradient(90deg, rgba(217, 4, 41, 0.05) 0%, transparent 100%); }
+        .glass { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.08); backdrop-filter: blur(10px); }
         .drag-over { border-color: #D90429 !important; background-color: rgba(217, 4, 41, 0.1) !important; }
+        .blur-report { filter: blur(4px); pointer-events: none; user-select: none; }
     </style>
 </head>
-<body class="antialiased">
+<body class="antialiased text-slate-200">
 
-    <nav class="max-w-6xl mx-auto px-6 py-6 flex justify-between items-center border-b border-white/5">
+    <nav class="max-w-6xl mx-auto px-6 py-6 flex justify-between items-center border-b border-white/5 sticky top-0 bg-[#050505]/90 backdrop-blur-md z-50">
         <div class="text-2xl font-black tracking-tighter uppercase italic text-white">Kalynchuk<span class="text-[#D90429]">.</span></div>
         <div class="hidden md:flex space-x-8 text-[10px] font-bold uppercase tracking-widest mono text-slate-500">
-            <a href="#terminal" class="hover:text-white transition">Data Ingestion</a>
+            <a href="#agitation" class="hover:text-white transition">The Problem</a>
+            <a href="#method" class="hover:text-white transition">Methodology</a>
             <a href="#pricing" class="hover:text-white transition">Pricing</a>
             <a href="research.html" class="hover:text-white transition">Intel Library</a>
         </div>
-        <a href="#terminal" class="bg-white text-black px-5 py-2 text-[10px] font-black uppercase tracking-widest hover:bg-[#D90429] hover:text-white transition">Run Audit</a>
+        <a href="#terminal" class="bg-white text-black px-5 py-2 text-[10px] font-black uppercase tracking-widest hover:bg-[#D90429] hover:text-white transition shadow-lg">Run Audit</a>
     </nav>
 
-    <header class="max-w-6xl mx-auto px-6 pt-24 pb-20 text-center">
-        <div class="inline-block border border-[#D90429]/50 bg-[#D90429]/10 px-4 py-1.5 rounded-sm text-[10px] font-bold uppercase tracking-[0.2em] text-[#D90429] mb-8 mono">Zero Data Retention</div>
-        <h1 class="text-6xl md:text-8xl font-black tracking-tighter leading-none mb-8 uppercase text-white font-black">Stop <span class="text-[#D90429]">EBITDA Leakage</span></h1>
-        <p class="text-xl text-slate-400 max-w-3xl mx-auto mb-12 font-medium italic italic">Institutional-grade Due Diligence powered by Market Kinematics.</p>
-        <a href="#terminal" class="inline-block bg-[#D90429] text-white px-12 py-6 font-black uppercase tracking-widest hover:scale-105 transition shadow-2xl shadow-red-900/20 text-sm">Access Terminal</a>
+    <header class="max-w-6xl mx-auto px-6 pt-28 pb-20 text-center relative">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#D90429] rounded-full blur-[150px] opacity-10 pointer-events-none"></div>
+        
+        <div class="inline-block border border-[#D90429]/50 bg-[#D90429]/10 px-4 py-1.5 rounded-sm text-[10px] font-bold uppercase tracking-[0.2em] text-[#D90429] mb-8 mono">
+            Zero Data Retention Policy
+        </div>
+        <h1 class="text-6xl md:text-8xl font-black tracking-tighter leading-none mb-8 uppercase text-white">
+            Stop <span class="text-[#D90429]">EBITDA Leakage</span> <br> on Amazon.
+        </h1>
+        <p class="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed mb-10 font-medium italic">
+            Data-as-a-Product for M&A aggregators and $1M+ brands. 
+            Built on Isolation Forest math and your raw Opportunity Explorer data.
+        </p>
+        
+        <div class="max-w-2xl mx-auto bg-white/5 border border-white/10 p-6 rounded-lg mb-12 text-sm text-slate-300 relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-1 h-full bg-[#D90429]"></div>
+            <h3 class="text-white font-black mb-2 uppercase tracking-widest mono text-xs">The $5,000 ROI Guarantee</h3>
+            <p>If the algorithm cannot locate at least $5,000 of annualized budget waste in your niche, the full audit is on me. You pay nothing.</p>
+        </div>
+        
+        <a href="#terminal" class="inline-block bg-[#D90429] text-white px-12 py-6 font-black uppercase tracking-widest hover:scale-105 transition shadow-2xl shadow-red-900/20 text-sm">
+            Access The Terminal
+        </a>
     </header>
 
-    <section id="terminal" class="bg-zinc-950 py-24 border-y border-white/5">
-        <div class="max-w-3xl mx-auto px-6">
-            <div class="glass p-10 rounded-xl relative">
-                <h2 class="text-2xl font-black uppercase tracking-tighter italic text-white mb-8">Data Ingestion Protocol</h2>
+    <section id="agitation" class="border-y border-white/5 py-32 bg-zinc-950">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-5xl font-black mb-8 tracking-tight text-white uppercase italic">Standard software lies to you.</h2>
+            <p class="text-lg text-slate-400 leading-relaxed max-w-2xl mx-auto">
+                Traditional tools show "Market Averages." Average review counts create an illusion of a saturated niche. <br><br>
+                <span class="text-white font-bold">Our engine strips away market anomalies (Goliaths) to reveal the True Barrier to Entry.</span>
+            </p>
+        </div>
+    </section>
+
+    <section id="method" class="max-w-6xl mx-auto px-6 py-32">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-black mb-4 uppercase italic text-white">How The Oracle Works.</h2>
+            <p class="text-slate-500 mono text-xs uppercase tracking-widest">No API connections. 100% Secure.</p>
+        </div>
+        <div class="grid md:grid-cols-4 gap-6">
+            <div class="glass p-8 rounded-lg hover:border-white/20 transition">
+                <div class="text-[#D90429] font-black text-xl mb-6 mono">01 / INPUT</div>
+                <p class="text-sm text-slate-400">Export 2 raw CSVs from Amazon Opportunity Explorer.</p>
+            </div>
+            <div class="glass p-8 rounded-lg hover:border-white/20 transition">
+                <div class="text-[#D90429] font-black text-xl mb-6 mono">02 / ENGINE</div>
+                <p class="text-sm text-slate-400">Our Quant-algorithm calculates Gini Index and Z-Score conversion efficiency.</p>
+            </div>
+            <div class="glass p-8 rounded-lg hover:border-white/20 transition">
+                <div class="text-[#D90429] font-black text-xl mb-6 mono">03 / TEASER</div>
+                <p class="text-sm text-slate-400">Receive a free PDF identifying total monthly budget waste.</p>
+            </div>
+            <div class="glass p-8 rounded-lg border-[#D90429]/30 hover:border-[#D90429] transition bg-[#D90429]/5">
+                <div class="text-[#D90429] font-black text-xl mb-6 mono">04 / UNLOCK</div>
+                <p class="text-sm text-white font-bold">Pay $499 to unlock the Full Attack Matrix & Negative Search Terms.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="terminal" class="bg-zinc-950 py-32 border-y border-white/5 relative">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <div class="glass p-10 md:p-14 rounded-2xl relative text-left shadow-2xl">
+                <div class="flex items-center justify-between mb-8 border-b border-white/10 pb-6">
+                    <h2 class="text-2xl font-black uppercase tracking-tighter italic text-white">Data Ingestion Protocol</h2>
+                    <span class="text-[10px] mono text-green-500 flex items-center bg-green-500/10 px-3 py-1 rounded-full border border-green-500/20">
+                        <span class="w-1.5 h-1.5 rounded-full bg-green-500 mr-2 animate-pulse"></span> SYSTEM READY
+                    </span>
+                </div>
                 
-                <form id="audit-form" class="space-y-6">
+                <form id="audit-form" class="space-y-8">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <input type="email" id="user-email" placeholder="Corporate Email" required class="w-full bg-black border border-slate-800 text-white px-4 py-3 rounded focus:border-[#D90429] transition mono text-sm outline-none">
-                        <input type="text" id="niche-name" placeholder="Niche Name" required class="w-full bg-black border border-slate-800 text-white px-4 py-3 rounded focus:border-[#D90429] transition mono text-sm outline-none">
+                        <div>
+                            <label class="block text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-2 mono">Corporate Email</label>
+                            <input type="email" id="user-email" required class="w-full bg-black border border-slate-800 text-white px-4 py-4 rounded focus:outline-none focus:border-[#D90429] transition mono text-sm shadow-inner placeholder-slate-700" placeholder="ceo@brand.com">
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-2 mono">Name of Niche</label>
+                            <input type="text" id="niche-name" required class="w-full bg-black border border-slate-800 text-white px-4 py-4 rounded focus:outline-none focus:border-[#D90429] transition mono text-sm shadow-inner placeholder-slate-700" placeholder="e.g., Cat Litter Box">
+                        </div>
                     </div>
 
-                    <div id="dropzone" class="border-2 border-dashed border-slate-700 rounded-lg p-12 text-center relative group cursor-pointer transition-all">
+                    <div id="dropzone" class="border-2 border-dashed border-slate-700 hover:border-slate-500 bg-black/30 rounded-xl p-12 text-center transition-all cursor-pointer relative group">
                         <input type="file" id="file-upload" multiple accept=".csv" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10">
-                        <p class="text-white font-bold text-sm uppercase tracking-widest">Drag &amp; Drop 2 CSVs</p>
-                        <p class="text-slate-500 text-[10px] mono">Products &amp; Search Terms Reports</p>
+                        <div class="pointer-events-none">
+                            <svg class="mx-auto h-10 w-10 text-slate-600 group-hover:text-[#D90429] transition mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" /></svg>
+                            <p class="text-white font-black text-sm mb-2 uppercase tracking-widest">Drag &amp; Drop 2 CSVs Here</p>
+                            <p class="text-slate-500 text-[10px] mono uppercase tracking-tighter">Requires Products &amp; Search Terms from Amazon POE</p>
+                        </div>
                     </div>
-                    <div id="file-list" class="text-[10px] mono text-green-500 hidden mt-4 space-y-1"></div>
+                    <div id="file-list" class="text-[10px] mono text-green-500 hidden space-y-2 mt-4 bg-green-500/5 p-4 border border-green-500/10 rounded"></div>
 
-                    <button type="submit" id="submit-btn" class="w-full bg-white text-black font-black uppercase py-4 rounded hover:bg-slate-200 transition text-xs tracking-widest">Generate Teaser Report</button>
+                    <div class="flex items-start mt-6">
+                        <input type="checkbox" required class="mt-1 mr-3 accent-[#D90429] w-4 h-4">
+                        <p class="text-[10px] text-slate-500 leading-relaxed uppercase tracking-wider">
+                            I accept the NDA Protocol. I acknowledge that proprietary data is processed locally via Python runtime and purged securely within 24 hours.
+                        </p>
+                    </div>
+
+                    <button type="submit" id="submit-btn" class="w-full bg-white text-black font-black uppercase py-5 rounded hover:bg-[#D90429] hover:text-white transition-all duration-300 mt-4 text-xs tracking-[0.2em] shadow-lg">
+                        Execute Protocol &amp; Generate Teaser
+                    </button>
                 </form>
             </div>
         </div>
     </section>
 
-    <section id="pricing" class="max-w-6xl mx-auto px-6 py-32 border-t border-white/5">
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="glass p-8 rounded-lg border-white/5">
-                <h3 class="text-[10px] text-slate-500 uppercase font-black mb-4">Risk Teaser</h3>
-                <div class="text-4xl font-black mb-8 text-white font-black">$0</div>
-                <ul class="text-[11px] space-y-4 text-slate-400 mono uppercase tracking-widest mb-8">
-                    <li>&check; EBITDA Leakage Sum</li>
-                    <li>&check; Entry Barrier</li>
-                    <li class="text-red-500">&times; Search Terms Redacted</li>
-                </ul>
+    <section class="max-w-6xl mx-auto px-6 py-32">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-black mb-4 uppercase italic text-white">What You Will See.</h2>
+        </div>
+        <div class="glass p-12 rounded-2xl relative overflow-hidden border-white/10">
+            <div class="absolute top-8 right-8 bg-[#D90429] text-white px-6 py-2 font-black uppercase text-xs rotate-3 z-10 shadow-2xl border border-red-400/30">
+                Budget Leak Detected: $88,604
             </div>
-            <div class="border-2 border-[#D90429] p-8 rounded-lg bg-zinc-950 scale-105">
-                <h3 class="text-[10px] text-[#D90429] uppercase font-black mb-4">The Oracle Quant</h3>
-                <div class="text-4xl font-black mb-8 text-white font-black">$499</div>
-                <ul class="text-[11px] space-y-4 text-white mono uppercase tracking-widest mb-8">
-                    <li>&check; Full Analysis PDF</li>
-                    <li>&check; ASIN Attack Matrix</li>
-                    <li>&check; Negative Keyword CSV</li>
-                </ul>
+            <div class="blur-report space-y-6 opacity-40">
+                <div class="h-6 bg-slate-700 w-3/4 rounded"></div>
+                <div class="h-4 bg-slate-800 w-1/2 rounded"></div>
+                <div class="grid grid-cols-3 gap-6 py-8">
+                    <div class="h-32 bg-slate-800 rounded border border-slate-600"></div>
+                    <div class="h-32 bg-slate-800 rounded border border-slate-600"></div>
+                    <div class="h-32 bg-slate-800 rounded border border-slate-600"></div>
+                </div>
             </div>
-            <div class="glass p-8 rounded-lg border-white/5">
-                <h3 class="text-[10px] text-slate-500 uppercase font-black mb-4">M&A Advisory</h3>
-                <div class="text-4xl font-black mb-8 text-white font-black">$1,499</div>
-                <ul class="text-[11px] space-y-4 text-slate-400 mono uppercase tracking-widest mb-8">
-                    <li>&check; Everything in Quant</li>
-                    <li>&check; 60min Strategy Session</li>
-                </ul>
+            <div class="text-center mt-12 relative z-20">
+                <p class="text-2xl font-bold mb-4 italic text-white">"Your competitors are burning this cash right now.<br>Find out who they are."</p>
             </div>
         </div>
     </section>
 
+    <section id="pricing" class="max-w-6xl mx-auto px-6 py-32 border-t border-white/5">
+        <div class="text-center mb-20">
+            <h2 class="text-4xl font-black mb-4 uppercase italic tracking-tighter text-white">Transparent Unit Economics.</h2>
+            <p class="text-slate-400">No retainers. No percentage of ad spend. Just data.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 items-end">
+            <div class="glass p-8 rounded-xl border-white/5 hover:bg-white/5 transition duration-500">
+                <h3 class="text-[10px] font-black uppercase tracking-[0.3em] mb-4 text-slate-500">Risk Teaser</h3>
+                <div class="text-4xl font-black mb-2 text-white">$0</div>
+                <p class="text-[10px] text-slate-500 mb-8 mono uppercase tracking-widest">Delivered in 24 hrs</p>
+                <ul class="text-[11px] space-y-4 text-slate-400 mb-8 mono uppercase tracking-widest">
+                    <li class="flex items-center"><span class="text-green-500 mr-3 text-sm">&check;</span> EBITDA Leakage Sum ($)</li>
+                    <li class="flex items-center"><span class="text-green-500 mr-3 text-sm">&check;</span> True Entry Barrier (ML)</li>
+                    <li class="flex items-center text-slate-600"><span class="text-red-900 mr-3 text-sm">&times;</span> Search Terms Redacted</li>
+                </ul>
+                <a href="#terminal" class="block w-full border border-white/20 py-4 text-center font-bold uppercase text-[10px] hover:bg-white hover:text-black transition tracking-widest rounded">Current Step</a>
+            </div>
+
+            <div class="border-2 border-[#D90429] p-10 rounded-xl bg-[#050505] relative shadow-[0_0_50px_rgba(217,4,41,0.15)] scale-105 z-10">
+                <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-[#D90429] text-white px-4 py-1 text-[9px] font-black uppercase tracking-widest rounded-sm">
+                    Most Selected
+                </div>
+                <h3 class="text-[10px] font-black uppercase tracking-[0.3em] mb-4 text-[#D90429]">The Oracle Quant</h3>
+                <div class="text-5xl font-black mb-2 text-white">$499</div>
+                <p class="text-[10px] text-slate-500 mb-8 mono uppercase tracking-widest">One-time payment</p>
+                <ul class="text-[11px] space-y-4 text-white mb-10 mono uppercase tracking-widest">
+                    <li class="flex items-center"><span class="text-green-500 mr-3 text-sm">&check;</span> Full Unredacted PDF</li>
+                    <li class="flex items-center"><span class="text-green-500 mr-3 text-sm">&check;</span> ASIN Vulnerability Matrix</li>
+                    <li class="flex items-center"><span class="text-green-500 mr-3 text-sm">&check;</span> Negative Keyword CSV</li>
+                    <li class="flex items-center"><span class="text-green-500 mr-3 text-sm">&check;</span> Cannibalization Audit</li>
+                </ul>
+                <a href="#" class="block w-full bg-[#D90429] py-5 text-center font-black uppercase text-[10px] hover:bg-red-700 transition tracking-[0.2em] rounded text-white shadow-lg shadow-red-900/20">Unlock Data Room</a>
+            </div>
+
+            <div class="glass p-8 rounded-xl border-white/5 hover:bg-white/5 transition duration-500">
+                <h3 class="text-[10px] font-black uppercase tracking-[0.3em] mb-4 text-slate-500">M&A Advisory</h3>
+                <div class="text-4xl font-black mb-2 text-white">$1,499</div>
+                <p class="text-[10px] text-slate-500 mb-8 mono uppercase tracking-widest">For Funds / Aggregators</p>
+                <ul class="text-[11px] space-y-4 text-slate-400 mb-8 mono uppercase tracking-widest">
+                    <li class="flex items-center"><span class="text-green-500 mr-3 text-sm">&check;</span> Everything in Quant</li>
+                    <li class="flex items-center"><span class="text-green-500 mr-3 text-sm">&check;</span> 60-Min Strategy Deep Dive</li>
+                    <li class="flex items-center"><span class="text-green-500 mr-3 text-sm">&check;</span> Post-Acquisition Plan</li>
+                </ul>
+                <a href="mailto:ceo@kalynchuk.com" class="block w-full border border-white/20 py-4 text-center font-bold uppercase text-[10px] hover:bg-white hover:text-black transition tracking-widest rounded">Enquire</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 text-center border-t border-white/5 bg-black">
+        <p class="text-[10px] text-slate-600 font-bold uppercase tracking-widest mono">&copy; 2026 Kalynchuk. Built for Institutional E-commerce.</p>
+    </footer>
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // === ВСТАВЬ СВОИ ДАННЫЕ СЮДА ===
             const BASEROW_TOKEN = "EwKKbn9scTuawRqAxTQiIBZQk7VA8CbG";
-            const TABLE_ID = "930440"; // ВСТАВЬ СЮДА ID ТВОЕЙ ТАБЛИЦЫ
+            const TABLE_ID = "930440"; // Замени на цифры таблицы
 
             const dropzone = document.getElementById('dropzone');
             const fileInput = document.getElementById('file-upload');
@@ -105,7 +233,7 @@
                 const files = dataTransfer.files;
                 if (files.length > 0) {
                     Array.from(files).forEach(f => {
-                        fileList.innerHTML += `<div class="italic font-bold text-[10px] uppercase">[READY] &bull; ${f.name}</div>`;
+                        fileList.innerHTML += `<div class="italic font-bold text-[10px] uppercase text-green-400">[READY] &rarr; ${f.name}</div>`;
                     });
                     fileList.classList.remove('hidden');
                 } else {
@@ -143,7 +271,7 @@
                 e.preventDefault();
                 
                 if (dataTransfer.files.length < 2) {
-                    alert("PROTOCOL ERROR: 2 CSV files required.");
+                    alert("PROTOCOL ERROR: 2 CSV files required (Products & Search Terms).");
                     return;
                 }
 
@@ -153,7 +281,7 @@
                 try {
                     const uploadedFiles = [];
 
-                    // Шаг 1: Загрузка файлов в хранилище Baserow
+                    // Шаг 1: Загрузка файлов
                     for (let file of dataTransfer.files) {
                         const fd = new FormData();
                         fd.append('file', file);
@@ -169,7 +297,7 @@
                         uploadedFiles.push({ "name": fileInfo.name });
                     }
 
-                    // Шаг 2: Создание записи в таблице
+                    // Шаг 2: Создание записи
                     const rowPayload = {
                         "Email": document.getElementById('user-email').value,
                         "Niche": document.getElementById('niche-name').value,
@@ -200,7 +328,7 @@
                     console.error(err);
                     alert("System Error. Check Table ID and API Token.");
                     submitBtn.disabled = false;
-                    submitBtn.innerHTML = "GENERATE TEASER REPORT";
+                    submitBtn.innerHTML = "EXECUTE PROTOCOL & GENERATE TEASER";
                 }
             });
         });
